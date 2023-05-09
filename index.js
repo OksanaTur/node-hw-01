@@ -27,6 +27,10 @@ const invokeAction = async ({ action, id, name, email, phone }) => {
             const newContact = await contacts.addContact({ name, email, phone });
             console.table(newContact);
             break;
+        case "update":
+            const updateContact = await contacts.updateContactById(id,{ name, email, phone });
+            console.table(updateContact);
+            break;
         case "remove":
             const deleteContact = await contacts.removeContact(id);
             console.table(deleteContact);
@@ -37,4 +41,5 @@ const invokeAction = async ({ action, id, name, email, phone }) => {
     }
 }
 
-invokeAction(argv);
+
+    invokeAction(argv)
